@@ -7,7 +7,7 @@ import requests
 DAYSERIAL_NUMERIC = dt.datetime.strftime(dt.datetime.now(),"%Y%m%d")
 
 def send_mail(context,success):
-    emails = ["saket.sagar@miqdigital.com", "a7j9n5x2y5p1b9x0@wearemiq.slack.com"]
+    emails = ["a7j9n5x2y5p1b9x0@wearemiq.slack.com"]
     payload ='{"notifications":[{"type":"notify","notification":{"channelType":"EMAIL","contact":{"from":"dwh-team@miqdigital.com","to":[],"cc":[],"bcc":[]},"content":{"subject":"","body":"","type":"html"}}}],"resourceTags":{"TEAM":"RND","PRODUCT":"AIQX"}}'
     headers = {'Content-type': 'application/json','environment': 'PRODUCTION','department': 'TECH','team': 'DATAWAREHOUSE','product':'AIQX','owner':'saket.sagar@miqdigital.com','cache-control': 'no-cache'}
     if success:
@@ -41,7 +41,7 @@ def success_notify_email(context):
 
 default_args = {
     'owner': 'airflow',
-    'start_date': dt.datetime(2020, 3, 2),
+    'start_date': dt.datetime(2020, 3, 31),
     'concurrency': 1,
     'retries': 1,
     'on_failure_callback': failure_notify_email
@@ -49,14 +49,14 @@ default_args = {
 
 dag = DAG('aiqx_daily_job',
             default_args=default_args,
-            schedule_interval='30 9 * * *',
+            schedule_interval='30 7 * * *',
             on_success_callback=success_notify_email,
             default_view='graph')
 
 t1 = QuboleOperator(
     task_id='shell',
     command_type="shellcmd",
-    script_location="s3://aiqx/aiqx-adhoc/saket/aiqx_daily_job/shell.sh",
+    script_location="s3://aiqdatabucket/scripts/aiqx/uns_qubole/shell.sh",
     parameters=DAYSERIAL_NUMERIC,
     dag = dag,
     cluster_label='AIQX-uns-adv-segments'
@@ -65,7 +65,7 @@ t1 = QuboleOperator(
 t2 = QuboleOperator(
     task_id='user_adv_segments',
     command_type="hivecmd",
-    script_location="s3://aiqx/aiqx-adhoc/saket/aiqx_daily_job/user_adv_segments.sql",
+    script_location="s3://aiqdatabucket/scripts/aiqx/uns_qubole/user_adv_segments.sql",
     dag = dag,
     cluster_label='AIQX-uns-adv-segments'
 )
@@ -73,7 +73,7 @@ t2 = QuboleOperator(
 t3 = QuboleOperator(
     task_id='dpi_dump_ids_new',
     command_type="hivecmd",
-    script_location="s3://aiqx/aiqx-adhoc/saket/aiqx_daily_job/dpi_dump_ids_new.sql",
+    script_location="s3://aiqdatabucket/scripts/aiqx/uns_qubole/dpi_dump_ids_new.sql",
     dag = dag,
     cluster_label='AIQX-uns-adv-segments'
 )
@@ -81,7 +81,7 @@ t3 = QuboleOperator(
 t4 = QuboleOperator(
     task_id='adv_segments_counts',
     command_type="hivecmd",
-    script_location="s3://aiqx/aiqx-adhoc/saket/aiqx_daily_job/adv_segments_counts.sql",
+    script_location="s3://aiqdatabucket/scripts/aiqx/uns_qubole/adv_segments_counts.sql",
     dag = dag,
     cluster_label='AIQX-uns-adv-segments'
 )
@@ -89,7 +89,7 @@ t4 = QuboleOperator(
 t5 = QuboleOperator(
     task_id='all_advertiser_segment_lu',
     command_type="hivecmd",
-    script_location="s3://aiqx/aiqx-adhoc/saket/aiqx_daily_job/all_advertiser_segment_lu.sql",
+    script_location="s3://aiqdatabucket/scripts/aiqx/uns_qubole/all_advertiser_segment_lu.sql",
     dag = dag,
     cluster_label='AIQX-uns-adv-segments'
 )
@@ -97,7 +97,7 @@ t5 = QuboleOperator(
 t6 = QuboleOperator(
     task_id='dpi_dump_ids_daily_insert',
     command_type="hivecmd",
-    script_location="s3://aiqx/aiqx-adhoc/saket/aiqx_daily_job/dpi_dump_ids_daily_insert.sql",
+    script_location="s3://aiqdatabucket/scripts/aiqx/uns_qubole/dpi_dump_ids_daily_insert.sql",
     dag = dag,
     cluster_label='AIQX-uns-adv-segments'
 )
@@ -105,7 +105,7 @@ t6 = QuboleOperator(
 t7 = QuboleOperator(
     task_id='aiqx_univ_search_adv_segments_daily_insert',
     command_type="hivecmd",
-    script_location="s3://aiqx/aiqx-adhoc/saket/aiqx_daily_job/aiqx_univ_search_adv_segments_daily_insert.sql",
+    script_location="s3://aiqdatabucket/scripts/aiqx/uns_qubole/aiqx_univ_search_adv_segments_daily_insert.sql",
     macros='[{"DAYSERIAL_NUMERIC" : "' + DAYSERIAL_NUMERIC + '"}]',
     dag = dag,
     cluster_label='AIQX-uns-adv-segments'
@@ -114,7 +114,7 @@ t7 = QuboleOperator(
 t8 = QuboleOperator(
     task_id='curl',
     command_type="shellcmd",
-    script_location="s3://aiqx/aiqx-adhoc/saket/aiqx_daily_job/curl.sh",
+    script_location="s3://aiqdatabucket/scripts/aiqx/uns_qubole/curl.sh",
     parameters=DAYSERIAL_NUMERIC,
     dag = dag,
     cluster_label='AIQX-uns-adv-segments'

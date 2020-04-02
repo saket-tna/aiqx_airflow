@@ -146,45 +146,45 @@ echo "$datedpi"
 
 copying_date=$1
 
-aws s3 cp s3://aiqx/uns_modularize/es_indexing/dayserial_numeric=$datedpi/url_words/ s3://aiqx/aiqx-adhoc/saket/uns_modularize/automated-daily/es_indexing/dayserial_numeric=$copying_date/url_words/ --recursive
-aws s3 cp s3://aiqx/uns_modularize/athena_users/url_words/dayserial_numeric=$datedpi/ s3://aiqx/aiqx-adhoc/saket/uns_modularize/automated-daily/athena_users/url_words/dayserial_numeric=$copying_date/ --recursive
-aws s3 cp s3://aiqx/uns_modularize/athena_users/demog_segs/dayserial_numeric=$datedpi/ s3:/aiqx/aiqx-adhoc/saket/uns_modularize/automated-daily/athena_users/demog_segs/dayserial_numeric=$copying_date/ --recursive
-aws s3 cp s3://aiqx/uns_modularize/athena_users/days/dayserial_numeric=$datedpi/ s3://aiqx/aiqx-adhoc/saket/uns_modularize/automated-daily/athena_users/days/dayserial_numeric=$copying_date/ --recursive
-aws s3 cp s3://aiqx/uns_modularize/athena_users/hours/dayserial_numeric=$datedpi/ s3://aiqx/aiqx-adhoc/saket/uns_modularize/automated-daily/athena_users/hours/dayserial_numeric=$copying_date/ --recursive
-aws s3 cp s3://aiqx/uns_modularize/athena_users/devices/dayserial_numeric=$datedpi/ s3://aiqx/aiqx-adhoc/saket/uns_modularize/automated-daily/athena_users/devices/dayserial_numeric=$copying_date/ --recursive
-aws s3 cp s3://aiqx/uns_modularize/athena_users/keywords/dayserial_numeric=$datedpi/ s3://aiqx/aiqx-adhoc/saket/uns_modularize/automated-daily/athena_users/keywords/dayserial_numeric=$copying_date/ --recursive
-aws s3 cp s3://aiqx/uns_modularize/athena_users/audience_segs/dayserial_numeric=$datedpi/ s3://aiqx/aiqx-adhoc/saket/uns_modularize/automated-daily/athena_users/audience_segs/dayserial_numeric=$copying_date/ --recursive
-aws s3 cp s3://aiqx/uns_modularize/athena_users/domains/dayserial_numeric=$datedpi/ s3://aiqx/aiqx-adhoc/saket/uns_modularize/automated-daily/athena_users/domains/dayserial_numeric=$copying_date/ --recursive
-aws s3 cp s3://aiqx/uns_modularize/athena_users/cities/dayserial_numeric=$datedpi/ s3://aiqx/aiqx-adhoc/saket/uns_modularize/automated-daily/athena_users/cities/dayserial_numeric=$copying_date/ --recursive
-aws s3 cp s3://aiqx/uns_modularize/es_indexing/geos/dayserial_numeric=$datedpi/ s3://aiqx/aiqx-adhoc/saket/uns_modularize/automated-daily/es_indexing/geos/dayserial_numeric=$copying_date/ --recursive
-aws s3 cp s3://aiqx/uns_modularize/es_indexing/brands/dayserial_numeric=$datedpi/ s3://aiqx/aiqx-adhoc/saket/uns_modularize/automated-daily/es_indexing/brands/dayserial_numeric=$copying_date/ --recursive
-aws s3 cp s3://aiqx/uns_modularize/es_indexing/devices/dayserial_numeric=$datedpi/ s3://aiqx/aiqx-adhoc/saket/uns_modularize/automated-daily/es_indexing/devices/dayserial_numeric=$copying_date/ --recursive
-aws s3 cp s3://aiqx/uns_modularize/es_indexing/words/dayserial_numeric=$datedpi/ s3://aiqx/aiqx-adhoc/saket/uns_modularize/automated-daily/es_indexing/words/dayserial_numeric=$copying_date/ --recursive
-aws s3 cp s3://aiqx/uns_modularize/es_indexing/domains/dayserial_numeric=$datedpi/ s3://aiqx/aiqx-adhoc/saket/uns_modularize/automated-daily/es_indexing/site_domains/dayserial_numeric=$copying_date/ --recursive
-aws s3 cp s3://aiqx/uns_modularize/es_indexing/aud_segments/dayserial_numeric=$datedpi/ s3://aiqx/aiqx-adhoc/saket/uns_modularize/automated-daily/es_indexing/aud_segments/dayserial_numeric=$copying_date/ --recursive
-aws s3 cp s3://aiqx/uns_modularize/es_indexing/demog_segs/dayserial_numeric=$datedpi/ s3://aiqx/aiqx-adhoc/saket/uns_modularize/automated-daily/es_indexing/demog_segs/dayserial_numeric=$copying_date/ --recursive
-aws s3 cp s3://aiqx/uns_modularize/metadata/audience_meta_data_final/dayserial_numeric=$datedpi/ s3://aiqx/aiqx-adhoc/saket/uns_modularize/automated-daily/metadata/audience_meta_data_final/dayserial_numeric=$copying_date/ --recursive
-aws s3 cp s3://aiqx/uns_modularize/metadata/domains_meta_data_final/dayserial_numeric=$datedpi/ s3://aiqx/aiqx-adhoc/saket/uns_modularize/automated-daily/metadata/domains_meta_data_final/dayserial_numeric=$copying_date/ --recursive
-aws s3 cp s3://aiqx/uns_modularize/metadata/words_meta_data_final/dayserial_numeric=$datedpi/ s3://aiqx/aiqx-adhoc/saket/uns_modularize/automated-daily/metadata/words_meta_data_final/dayserial_numeric=$copying_date/ --recursive
-aws s3 cp s3://aiqx/uns_modularize/athena_users/networks/dayserial_numeric=$datedpi/ s3://aiqx/aiqx-adhoc/saket/uns_modularize/automated-daily/athena_users/networks/dayserial_numeric=$copying_date/ --recursive
-aws s3 cp s3://aiqx/uns_modularize/athena_users/titles/dayserial_numeric=$datedpi/ s3://aiqx/aiqx-adhoc/saket/uns_modularize/automated-daily/athena_users/titles/dayserial_numeric=$copying_date/ --recursive
-aws s3 cp s3://aiqx/uns_modularize/athena_users/cast_day_hour/dayserial_numeric=$datedpi/ s3://aiqx/aiqx-adhoc/saket/uns_modularize/automated-daily/athena_users/cast_day_hour/dayserial_numeric=$copying_date/ --recursive
-aws s3 cp s3://aiqx/uns_modularize/athena_users/cast_commercial_brands_titles/dayserial_numeric=$datedpi/ s3://aiqx/aiqx-adhoc/saket/uns_modularize/automated-daily/athena_users/cast_commercial_brands_titles/dayserial_numeric=$copying_date/ --recursive
-aws s3 cp s3://aiqx/uns_modularize/athena_users/cast_commercial_brands_networks/dayserial_numeric=$datedpi/ s3://aiqx/aiqx-adhoc/saket/uns_modularize/automated-daily/athena_users/cast_commercial_brands_networks/dayserial_numeric=$copying_date/ --recursive
-aws s3 cp s3://aiqx/uns_modularize/es_indexing/cast_commercial_brands_list/dayserial_numeric=$datedpi/ s3://aiqx/aiqx-adhoc/saket/uns_modularize/automated-daily/es_indexing/cast_commercial_brands_list/dayserial_numeric=$copying_date/ --recursive
+aws s3 cp s3://aiqx/uns_modularize/es_indexing/dayserial_numeric=$datedpi/url_words/ s3://aiqx/uns_modularize/automated-daily/es_indexing/dayserial_numeric=$copying_date/url_words/ --recursive
+aws s3 cp s3://aiqx/uns_modularize/athena_users/url_words/dayserial_numeric=$datedpi/ s3://aiqx/uns_modularize/automated-daily/athena_users/url_words/dayserial_numeric=$copying_date/ --recursive
+aws s3 cp s3://aiqx/uns_modularize/athena_users/demog_segs/dayserial_numeric=$datedpi/ s3://aiqx/uns_modularize/automated-daily/athena_users/demog_segs/dayserial_numeric=$copying_date/ --recursive
+aws s3 cp s3://aiqx/uns_modularize/athena_users/days/dayserial_numeric=$datedpi/ s3://aiqx/uns_modularize/automated-daily/athena_users/days/dayserial_numeric=$copying_date/ --recursive
+aws s3 cp s3://aiqx/uns_modularize/athena_users/hours/dayserial_numeric=$datedpi/ s3://aiqx/uns_modularize/automated-daily/athena_users/hours/dayserial_numeric=$copying_date/ --recursive
+aws s3 cp s3://aiqx/uns_modularize/athena_users/devices/dayserial_numeric=$datedpi/ s3://aiqx/uns_modularize/automated-daily/athena_users/devices/dayserial_numeric=$copying_date/ --recursive
+aws s3 cp s3://aiqx/uns_modularize/athena_users/keywords/dayserial_numeric=$datedpi/ s3://aiqx/uns_modularize/automated-daily/athena_users/keywords/dayserial_numeric=$copying_date/ --recursive
+aws s3 cp s3://aiqx/uns_modularize/athena_users/audience_segs/dayserial_numeric=$datedpi/ s3://aiqx/uns_modularize/automated-daily/athena_users/audience_segs/dayserial_numeric=$copying_date/ --recursive
+aws s3 cp s3://aiqx/uns_modularize/athena_users/domains/dayserial_numeric=$datedpi/ s3://aiqx/uns_modularize/automated-daily/athena_users/domains/dayserial_numeric=$copying_date/ --recursive
+aws s3 cp s3://aiqx/uns_modularize/athena_users/cities/dayserial_numeric=$datedpi/ s3://aiqx/uns_modularize/automated-daily/athena_users/cities/dayserial_numeric=$copying_date/ --recursive
+aws s3 cp s3://aiqx/uns_modularize/es_indexing/geos/dayserial_numeric=$datedpi/ s3://aiqx/uns_modularize/automated-daily/es_indexing/geos/dayserial_numeric=$copying_date/ --recursive
+aws s3 cp s3://aiqx/uns_modularize/es_indexing/brands/dayserial_numeric=$datedpi/ s3://aiqx/uns_modularize/automated-daily/es_indexing/brands/dayserial_numeric=$copying_date/ --recursive
+aws s3 cp s3://aiqx/uns_modularize/es_indexing/devices/dayserial_numeric=$datedpi/ s3://aiqx/uns_modularize/automated-daily/es_indexing/devices/dayserial_numeric=$copying_date/ --recursive
+aws s3 cp s3://aiqx/uns_modularize/es_indexing/words/dayserial_numeric=$datedpi/ s3://aiqx/uns_modularize/automated-daily/es_indexing/words/dayserial_numeric=$copying_date/ --recursive
+aws s3 cp s3://aiqx/uns_modularize/es_indexing/domains/dayserial_numeric=$datedpi/ s3://aiqx/uns_modularize/automated-daily/es_indexing/site_domains/dayserial_numeric=$copying_date/ --recursive
+aws s3 cp s3://aiqx/uns_modularize/es_indexing/aud_segments/dayserial_numeric=$datedpi/ s3://aiqx/uns_modularize/automated-daily/es_indexing/aud_segments/dayserial_numeric=$copying_date/ --recursive
+aws s3 cp s3://aiqx/uns_modularize/es_indexing/demog_segs/dayserial_numeric=$datedpi/ s3://aiqx/uns_modularize/automated-daily/es_indexing/demog_segs/dayserial_numeric=$copying_date/ --recursive
+aws s3 cp s3://aiqx/uns_modularize/metadata/audience_meta_data_final/dayserial_numeric=$datedpi/ s3://aiqx/uns_modularize/automated-daily/metadata/audience_meta_data_final/dayserial_numeric=$copying_date/ --recursive
+aws s3 cp s3://aiqx/uns_modularize/metadata/domains_meta_data_final/dayserial_numeric=$datedpi/ s3://aiqx/uns_modularize/automated-daily/metadata/domains_meta_data_final/dayserial_numeric=$copying_date/ --recursive
+aws s3 cp s3://aiqx/uns_modularize/metadata/words_meta_data_final/dayserial_numeric=$datedpi/ s3://aiqx/uns_modularize/automated-daily/metadata/words_meta_data_final/dayserial_numeric=$copying_date/ --recursive
+aws s3 cp s3://aiqx/uns_modularize/athena_users/networks/dayserial_numeric=$datedpi/ s3://aiqx/uns_modularize/automated-daily/athena_users/networks/dayserial_numeric=$copying_date/ --recursive
+aws s3 cp s3://aiqx/uns_modularize/athena_users/titles/dayserial_numeric=$datedpi/ s3://aiqx/uns_modularize/automated-daily/athena_users/titles/dayserial_numeric=$copying_date/ --recursive
+aws s3 cp s3://aiqx/uns_modularize/athena_users/cast_day_hour/dayserial_numeric=$datedpi/ s3://aiqx/uns_modularize/automated-daily/athena_users/cast_day_hour/dayserial_numeric=$copying_date/ --recursive
+aws s3 cp s3://aiqx/uns_modularize/athena_users/cast_commercial_brands_titles/dayserial_numeric=$datedpi/ s3://aiqx/uns_modularize/automated-daily/athena_users/cast_commercial_brands_titles/dayserial_numeric=$copying_date/ --recursive
+aws s3 cp s3://aiqx/uns_modularize/athena_users/cast_commercial_brands_networks/dayserial_numeric=$datedpi/ s3://aiqx/uns_modularize/automated-daily/athena_users/cast_commercial_brands_networks/dayserial_numeric=$copying_date/ --recursive
+aws s3 cp s3://aiqx/uns_modularize/es_indexing/cast_commercial_brands_list/dayserial_numeric=$datedpi/ s3://aiqx/uns_modularize/automated-daily/es_indexing/cast_commercial_brands_list/dayserial_numeric=$copying_date/ --recursive
 
 
 
-/usr/lib/hive1.2/usr-bin/hive1.2 -f s3://aiqx/aiqx-adhoc/saket/aiqx_daily_job/create.sql -d DAYSERIAL_NUMERIC=$1 -d datedpi=$datedpi -d DAY1=$DAY1 -d DAY2=$DAY2 -d DAY3=$DAY3 -d DAY4=$DAY4 -d DAY5=$DAY5 -d DAY6=$DAY6 -d DAY7=$DAY7 -d DAY8=$DAY8 -d DAY9=$DAY9 -d DAY10=$DAY10 -d DAY11=$DAY11 -d DAY12=$DAY12 -d DAY13=$DAY13 -d DAY14=$DAY14 -d DAY15=$DAY15 -d DAY16=$DAY16 -d DAY17=$DAY17 -d DAY18=$DAY18 -d DAY19=$DAY19 -d DAY20=$DAY20 -d DAY21=$DAY21 -d DAY22=$DAY22 -d DAY23=$DAY23 -d DAY24=$DAY24 -d DAY25=$DAY25 -d DAY26=$DAY26 -d DAY27=$DAY27 -d DAY28=$DAY28 -d DAY29=$DAY29 -d DAY30=$DAY30
+/usr/lib/hive1.2/usr-bin/hive1.2 -f s3://aiqdatabucket/scripts/aiqx/uns_qubole/basic_load_tables.sql -d DAYSERIAL_NUMERIC=$1 -d datedpi=$datedpi -d DAY1=$DAY1 -d DAY2=$DAY2 -d DAY3=$DAY3 -d DAY4=$DAY4 -d DAY5=$DAY5 -d DAY6=$DAY6 -d DAY7=$DAY7 -d DAY8=$DAY8 -d DAY9=$DAY9 -d DAY10=$DAY10 -d DAY11=$DAY11 -d DAY12=$DAY12 -d DAY13=$DAY13 -d DAY14=$DAY14 -d DAY15=$DAY15 -d DAY16=$DAY16 -d DAY17=$DAY17 -d DAY18=$DAY18 -d DAY19=$DAY19 -d DAY20=$DAY20 -d DAY21=$DAY21 -d DAY22=$DAY22 -d DAY23=$DAY23 -d DAY24=$DAY24 -d DAY25=$DAY25 -d DAY26=$DAY26 -d DAY27=$DAY27 -d DAY28=$DAY28 -d DAY29=$DAY29 -d DAY30=$DAY30
 
 
 copying_date=$1
 
-file2=`aws s3 ls s3://aiqx/aiqx-adhoc/saket/uns_modularize/automated-daily/es_indexing/dayserial_numeric=$copying_date/url_words/ | wc -l`
+file2=`aws s3 ls s3://aiqx/uns_modularize/automated-daily/es_indexing/dayserial_numeric=$copying_date/url_words/ | wc -l`
 
 
 if [ $file2 -gt 0 ]
 then
-  aws s3 rm s3://aiqx/aiqx-adhoc/saket/uns_modularize/automated-daily/es_indexing/latest/url_words/ --recursive
-  aws s3 cp s3://aiqx/uns_modularize/automated-daily/es_indexing/dayserial_numeric=$copying_date/url_words/ s3://aiqx/aiqx-adhoc/saket/uns_modularize/automated-daily/es_indexing/latest/url_words/ --recursive
+	aws s3 rm s3://aiqx/uns_modularize/automated-daily/es_indexing/latest/url_words/ --recursive
+	aws s3 cp s3://aiqx/uns_modularize/automated-daily/es_indexing/dayserial_numeric=$copying_date/url_words/ s3://aiqx/uns_modularize/automated-daily/es_indexing/latest/url_words/ --recursive
 fi

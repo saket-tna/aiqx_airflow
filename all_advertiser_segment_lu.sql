@@ -28,7 +28,7 @@ SET mapreduce.map.java.opts = -Xmx8192m;
 SET mapreduce.reduce.java.opts = -Xmx8192m;
 
 
-Use saket;
+Use uns_daily;
 
 
 drop table if exists all_advertiser_segment_lu;

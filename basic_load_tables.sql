@@ -28,18 +28,18 @@ SET mapreduce.map.java.opts = -Xmx8192m;
 SET mapreduce.reduce.java.opts = -Xmx8192m;
 
 
-Use saket;
+Use uns_daily;
 
 
 DROP TABLE IF EXISTS segment_feed;
 CREATE EXTERNAL TABLE IF NOT EXISTS segment_feed(
-DT string,
-USER_ID_64 string,
-MEMBER_ID string,
-SEGMENT_ID string,
-IS_DAILY_UNIQUE string,
-IS_MONTHLY_UNIQUE string,
-EXTERNAL_VALUE string)
+  DT string,
+  USER_ID_64 string,
+  MEMBER_ID string,
+  SEGMENT_ID string,
+  IS_DAILY_UNIQUE string,
+  IS_MONTHLY_UNIQUE string,
+  EXTERNAL_VALUE string)
 PARTITIONED BY (dayserial_numeric string) STORED AS RCFILE
 LOCATION 's3://aiqdatabucket/aiq-inputfiles/segment_feed_rc/';
 
@@ -80,9 +80,9 @@ ALTER TABLE segment_feed add if not exists PARTITION(dayserial_numeric='${DAY1}'
 DROP TABLE IF EXISTS crm_stored_data;
 create external table if not exists crm_stored_data
 (
-user_id_64 string,
-segment_id string,
-dt date
+  user_id_64 string,
+  segment_id string,
+  dt date
 )
 ROW FORMAT SERDE 'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe'
 WITH SERDEPROPERTIES (
@@ -96,24 +96,24 @@ LOCATION 's3://aiqx/uns_modularize/crm_segments_data/';
 
 DROP TABLE IF EXISTS dpi_dump_ids;
 create external table if not exists dpi_dump_ids (
-userid                  bigint,
-degeocountry            string,
-hours_of_the_day        array<int>,
-days_of_the_week        array<int>,
-sitedomains             array<int>,
-adv_segments            array<int>,
-aud_segments            array<bigint>,
-demog_segments          array<bigint>,
-word array<int>,
-url_words               array<int>,
-brands                  array<int>,
-devices                 array<int>,
-cities                  array<bigint>,
-regions                 array<bigint>,
-titles                  array<string>,
-networks                array<string>,
-day_week                array<string>,
-cast_brands                  array<int>
+  userid                  bigint,
+  degeocountry            string,
+  hours_of_the_day        array<int>,
+  days_of_the_week        array<int>,
+  sitedomains             array<int>,
+  adv_segments            array<int>,
+  aud_segments            array<bigint>,
+  demog_segments          array<bigint>,
+  word array<int>,
+  url_words               array<int>,
+  brands                  array<int>,
+  devices                 array<int>,
+  cities                  array<bigint>,
+  regions                 array<bigint>,
+  titles                  array<string>,
+  networks                array<string>,
+  day_week                array<string>,
+  cast_brands                  array<int>
 ) PARTITIONED BY (geo_country string)
 stored as orc
 LOCATION 's3://aiqx/uns_modularize/master_data/dayserial_numeric=${datedpi}/';
@@ -129,50 +129,50 @@ ALTER TABLE dpi_dump_ids add if not exists PARTITION(geo_country='CA');
 
 DROP TABLE IF EXISTS dpi_dump_ids_daily;
 create external table if not exists dpi_dump_ids_daily (
-userid                  bigint,
-degeocountry            string,
-hours_of_the_day        array<int>,
-days_of_the_week        array<int>,
-sitedomains             array<int>,
-adv_segments            array<int>,
-aud_segments            array<bigint>,
-demog_segments          array<bigint>,
-word array<int>,
-url_words               array<int>,
-brands                  array<int>,
-devices                 array<int>,
-cities                  array<bigint>,
-regions                 array<bigint>,
-titles                  array<string>,
-networks                array<string>,
-day_week                array<string>,
-cast_brands                  array<int>
+  userid                  bigint,
+  degeocountry            string,
+  hours_of_the_day        array<int>,
+  days_of_the_week        array<int>,
+  sitedomains             array<int>,
+  adv_segments            array<int>,
+  aud_segments            array<bigint>,
+  demog_segments          array<bigint>,
+  word array<int>,
+  url_words               array<int>,
+  brands                  array<int>,
+  devices                 array<int>,
+  cities                  array<bigint>,
+  regions                 array<bigint>,
+  titles                  array<string>,
+  networks                array<string>,
+  day_week                array<string>,
+  cast_brands                  array<int>
 )
 PARTITIONED BY ( geo_country string)
 stored as orc
-LOCATION 's3://aiqx/aiqx-adhoc/saket/uns_modularize/automated-daily/dpi_ids/dayserial_numeric=${DAYSERIAL_NUMERIC}/';
+LOCATION 's3://aiqx/uns_modularize/automated-daily/dpi_ids/dayserial_numeric=${DAYSERIAL_NUMERIC}/';
 
 
 DROP TABLE IF EXISTS advertiser_segment_lu;
 Create External Table IF NOT EXISTS advertiser_segment_lu(
-segment_id       BIGINT,
-segment_name     string,
-pixel_type       string,
-advertiser_id    string,
-miq_category     string,
-requiredForSrs   string)
+  segment_id       BIGINT,
+  segment_name     string,
+  pixel_type       string,
+  advertiser_id    string,
+  miq_category     string,
+  requiredForSrs   string)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' STORED AS TEXTFILE
 LOCATION 's3://mediaiq-apps-jarvis/connect/production/lookups/advertiser-segment/';
 
 
 drop table if exists groupm_advertiser_segment_lu;
 Create External Table IF NOT EXISTS groupm_advertiser_segment_lu(
-segment_id       BIGINT,
-segment_name     string,
-pixel_type       string,
-advertiser_id    string,
-miq_category     string,
-requiredForSrs   string)
+  segment_id       BIGINT,
+  segment_name     string,
+  pixel_type       string,
+  advertiser_id    string,
+  miq_category     string,
+  requiredForSrs   string)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' STORED AS TEXTFILE
 LOCATION 's3://aiqx/lookup_data/vidya_groupm_adv_segments_lu/'
 tblproperties ("skip.header.line.count" = "1");
@@ -181,13 +181,13 @@ tblproperties ("skip.header.line.count" = "1");
 set hive.exec.compress.output = false;
 
 DROP TABLE aiqx_univ_search_adv_segments_daily;
-create external table aiqx_univ_search_adv_segments_daily
-(degeocountry            string,
-id        int,
-entity_type             string,
-users                   bigint,
-advertiser_id bigint,
-segment_name string)
+create external table aiqx_univ_search_adv_segments_daily(
+  degeocountry            string,
+  id        int,
+  entity_type             string,
+  users                   bigint,
+  advertiser_id bigint,
+  segment_name string)
 PARTITIONED BY (dayserial_numeric bigint)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
-STORED AS TEXTFILE LOCATION 's3://aiqx/aiqx-adhoc/saket/uns_modularize/automated-daily/es_indexing/adv_segments/';
+STORED AS TEXTFILE LOCATION 's3://aiqx/uns_modularize/automated-daily/es_indexing/adv_segments/';

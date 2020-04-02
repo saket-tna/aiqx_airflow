@@ -28,7 +28,7 @@ SET mapreduce.map.java.opts = -Xmx8192m;
 SET mapreduce.reduce.java.opts = -Xmx8192m;
 
 
-Use saket;
+Use uns_daily;
 
 
 insert overwrite table dpi_dump_ids_daily PARTITION (geo_country = 'US')

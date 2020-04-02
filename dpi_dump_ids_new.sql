@@ -28,7 +28,7 @@ SET mapreduce.map.java.opts = -Xmx8192m;
 SET mapreduce.reduce.java.opts = -Xmx8192m;
 
 
-Use saket;
+Use uns_daily;
 
 
 DROP TABLE dpi_dump_ids_new;

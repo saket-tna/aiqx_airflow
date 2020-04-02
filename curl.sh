@@ -1,1 +1,1 @@
-# curl -u "sharan@miqdigital.com:11680f86587021655cdc85fd8cf629fc72" https://builds-corp.mediaiqdigital.com/job/aiqx-POST-UNIV-SEARCH-HIVE/buildWithParameters\?token\=postAiqxUnivHiveJob\&daySerialNumeric\=$1\&branch\=master\&destination\=production
+curl -u "sharan@miqdigital.com:11680f86587021655cdc85fd8cf629fc72" https://builds-corp.mediaiqdigital.com/job/aiqx-POST-UNIV-SEARCH-HIVE/buildWithParameters\?token\=postAiqxUnivHiveJob\&daySerialNumeric\=$1\&branch\=master\&destination\=production
