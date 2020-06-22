@@ -113,7 +113,8 @@ create external table if not exists dpi_dump_ids (
   titles                  array<string>,
   networks                array<string>,
   day_week                array<string>,
-  cast_brands                  array<int>
+  cast_brands                  array<int>,
+  domains_category        array<int>
 ) PARTITIONED BY (geo_country string)
 stored as orc
 LOCATION 's3://aiqx/uns_modularize/master_data/dayserial_numeric=${datedpi}/';
@@ -125,32 +126,36 @@ ALTER TABLE dpi_dump_ids add if not exists PARTITION(geo_country='US');
 ALTER TABLE dpi_dump_ids add if not exists PARTITION(geo_country='AU');
 ALTER TABLE dpi_dump_ids add if not exists PARTITION(geo_country='DE');
 ALTER TABLE dpi_dump_ids add if not exists PARTITION(geo_country='CA');
+ALTER TABLE dpi_dump_ids add if not exists PARTITION(geo_country='SG');
+ALTER TABLE dpi_dump_ids add if not exists PARTITION(geo_country='TH');
+ALTER TABLE dpi_dump_ids add if not exists PARTITION(geo_country='MY');
 
 
 DROP TABLE IF EXISTS dpi_dump_ids_daily;
 create external table if not exists dpi_dump_ids_daily (
-  userid                  bigint,
-  degeocountry            string,
-  hours_of_the_day        array<int>,
-  days_of_the_week        array<int>,
-  sitedomains             array<int>,
-  adv_segments            array<int>,
-  aud_segments            array<bigint>,
-  demog_segments          array<bigint>,
-  word array<int>,
-  url_words               array<int>,
-  brands                  array<int>,
-  devices                 array<int>,
-  cities                  array<bigint>,
-  regions                 array<bigint>,
-  titles                  array<string>,
-  networks                array<string>,
-  day_week                array<string>,
-  cast_brands                  array<int>
+userid                  bigint,
+degeocountry            string,
+hours_of_the_day        array<int>,
+days_of_the_week        array<int>,
+sitedomains             array<int>,
+adv_segments            array<int>,
+aud_segments            array<bigint>,
+demog_segments          array<bigint>,
+word array<int>,
+url_words               array<int>,
+brands                  array<int>,
+devices                 array<int>,
+cities                  array<bigint>,
+regions                 array<bigint>,
+titles                  array<string>,
+networks                array<string>,
+day_week                array<string>,
+cast_brands                  array<int>,
+domains_category          array<int>
 )
 PARTITIONED BY ( geo_country string)
 stored as orc
-LOCATION 's3://aiqx/uns_modularize/automated-daily/dpi_ids/dayserial_numeric=${DAYSERIAL_NUMERIC}/';
+LOCATION 's3://aiqx/uns_modularize/automated-daily/master_data/dayserial_numeric=${DAYSERIAL_NUMERIC}/';
 
 
 DROP TABLE IF EXISTS advertiser_segment_lu;

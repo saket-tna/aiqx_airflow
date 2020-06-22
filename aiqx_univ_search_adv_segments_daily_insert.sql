@@ -34,4 +34,4 @@ Use uns_daily;
 set hive.exec.compress.output = false;
 
 insert overwrite table aiqx_univ_search_adv_segments_daily partition (dayserial_numeric=$DAYSERIAL_NUMERIC$)
-select a.degeocountry,a.id,a.entity_type,a.users,b.advertiser_id,b.segment_name from adv_segments_counts a join all_advertiser_segment_lu b on a.id=b.segment_id;
+select a.degeocountry,a.id,a.entity_type,a.users,b.advertiser_id,b.segment_name from adv_segments_counts as a join all_advertiser_segment_lu as b on a.id=b.segment_id;

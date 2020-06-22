@@ -1,3 +1,5 @@
+pip install awscli
+
 echo "run_date is "
 run_date=$(date -d "$1 -2 day" +%Y%m%d)
 echo $run_date
@@ -95,9 +97,10 @@ file25=`aws s3 ls s3://aiqx/uns_modularize/athena_users/cast_day_hour/dayserial_
 file26=`aws s3 ls s3://aiqx/uns_modularize/athena_users/cast_commercial_brands_titles/dayserial_numeric=$datedpi/ | wc -l`
 file27=`aws s3 ls s3://aiqx/uns_modularize/athena_users/cast_commercial_brands_networks/dayserial_numeric=$datedpi/ | wc -l`
 file28=`aws s3 ls s3://aiqx/uns_modularize/es_indexing/cast_commercial_brands_list/dayserial_numeric=$datedpi/ | wc -l`
+file29=`aws s3 ls s3://aiqx/uns_modularize/athena_users/domains_category/dayserial_numeric=$datedpi/ | wc -l`
 
 i=-1
-if [ $file1 -gt 0 ] && [ $file2 -gt 0 ] && [ $file3 -gt 0 ] && [ $file4 -gt 0 ] && [ $file5 -gt 0 ] && [ $file6 -gt 0 ] && [ $file7 -gt 0 ] && [ $file8 -gt 0 ] && [ $file9 -gt 0 ] && [ $file10 -gt 0 ] && [ $file11 -gt 0 ] && [ $file12 -gt 0 ] && [ $file13 -gt 0 ] && [ $file14 -gt 0 ] && [ $file15 -gt 0 ] && [ $file16 -gt 0 ] && [ $file17 -gt 0 ] && [ $file18 -gt 0 ] && [ $file19 -gt 0 ] && [ $file20 -gt 0 ] && [ $file21 -gt 0 ] && [ $file22 -gt 0 ] && [ $file23 -gt 0 ] && [ $file24 -gt 0 ] && [ $file25 -gt 0 ] && [ $file26 -gt 0 ] && [ $file27 -gt 0 ] && [ $file28 -gt 0 ]
+if [ $file1 -gt 0 ] && [ $file2 -gt 0 ] && [ $file3 -gt 0 ] && [ $file4 -gt 0 ] && [ $file5 -gt 0 ] && [ $file6 -gt 0 ] && [ $file7 -gt 0 ] && [ $file8 -gt 0 ] && [ $file9 -gt 0 ] && [ $file10 -gt 0 ] && [ $file11 -gt 0 ] && [ $file12 -gt 0 ] && [ $file13 -gt 0 ] && [ $file14 -gt 0 ] && [ $file15 -gt 0 ] && [ $file16 -gt 0 ] && [ $file17 -gt 0 ] && [ $file18 -gt 0 ] && [ $file19 -gt 0 ] && [ $file20 -gt 0 ] && [ $file21 -gt 0 ] && [ $file22 -gt 0 ] && [ $file23 -gt 0 ] && [ $file24 -gt 0 ] && [ $file25 -gt 0 ] && [ $file26 -gt 0 ] && [ $file27 -gt 0 ] && [ $file28 -gt 0 ] && [ $file29 -gt 0 ]
 	then echo "got in first run"
 else
 	while [ $i -gt -60 ]
@@ -132,9 +135,10 @@ else
 		file26=`aws s3 ls s3://aiqx/uns_modularize/athena_users/cast_commercial_brands_titles/dayserial_numeric=$datedpi/ | wc -l`
 		file27=`aws s3 ls s3://aiqx/uns_modularize/athena_users/cast_commercial_brands_networks/dayserial_numeric=$datedpi/ | wc -l`
 		file28=`aws s3 ls s3://aiqx/uns_modularize/es_indexing/cast_commercial_brands_list/dayserial_numeric=$datedpi/ | wc -l`
+		file29=`aws s3 ls s3://aiqx/uns_modularize/athena_users/domains_category/dayserial_numeric=$datedpi/ | wc -l`
 
 		i=$((i-1))
-		if [ $file1 -gt 0 ] && [ $file2 -gt 0 ] && [ $file3 -gt 0 ] && [ $file4 -gt 0 ] && [ $file5 -gt 0 ] && [ $file6 -gt 0 ] && [ $file7 -gt 0 ] && [ $file8 -gt 0 ] && [ $file9 -gt 0 ] && [ $file10 -gt 0 ] && [ $file11 -gt 0 ] && [ $file12 -gt 0 ] && [ $file13 -gt 0 ] && [ $file14 -gt 0 ] && [ $file15 -gt 0 ] && [ $file16 -gt 0 ] && [ $file17 -gt 0 ] && [ $file18 -gt 0 ] && [ $file19 -gt 0 ] && [ $file20 -gt 0 ] && [ $file21 -gt 0 ] && [ $file22 -gt 0 ] && [ $file23 -gt 0 ] && [ $file24 -gt 0 ] && [ $file25 -gt 0 ] && [ $file26 -gt 0 ] && [ $file27 -gt 0 ] && [ $file28 -gt 0 ]
+		if [ $file1 -gt 0 ] && [ $file2 -gt 0 ] && [ $file3 -gt 0 ] && [ $file4 -gt 0 ] && [ $file5 -gt 0 ] && [ $file6 -gt 0 ] && [ $file7 -gt 0 ] && [ $file8 -gt 0 ] && [ $file9 -gt 0 ] && [ $file10 -gt 0 ] && [ $file11 -gt 0 ] && [ $file12 -gt 0 ] && [ $file13 -gt 0 ] && [ $file14 -gt 0 ] && [ $file15 -gt 0 ] && [ $file16 -gt 0 ] && [ $file17 -gt 0 ] && [ $file18 -gt 0 ] && [ $file19 -gt 0 ] && [ $file20 -gt 0 ] && [ $file21 -gt 0 ] && [ $file22 -gt 0 ] && [ $file23 -gt 0 ] && [ $file24 -gt 0 ] && [ $file25 -gt 0 ] && [ $file26 -gt 0 ] && [ $file27 -gt 0 ] && [ $file28 -gt 0 ] && [ $file29 -gt 0 ]
 			then echo "$i"
 			break
 		fi
@@ -160,9 +164,10 @@ aws s3 cp s3://aiqx/uns_modularize/es_indexing/geos/dayserial_numeric=$datedpi/ 
 aws s3 cp s3://aiqx/uns_modularize/es_indexing/brands/dayserial_numeric=$datedpi/ s3://aiqx/uns_modularize/automated-daily/es_indexing/brands/dayserial_numeric=$copying_date/ --recursive
 aws s3 cp s3://aiqx/uns_modularize/es_indexing/devices/dayserial_numeric=$datedpi/ s3://aiqx/uns_modularize/automated-daily/es_indexing/devices/dayserial_numeric=$copying_date/ --recursive
 aws s3 cp s3://aiqx/uns_modularize/es_indexing/words/dayserial_numeric=$datedpi/ s3://aiqx/uns_modularize/automated-daily/es_indexing/words/dayserial_numeric=$copying_date/ --recursive
-aws s3 cp s3://aiqx/uns_modularize/es_indexing/domains/dayserial_numeric=$datedpi/ s3://aiqx/uns_modularize/automated-daily/es_indexing/site_domains/dayserial_numeric=$copying_date/ --recursive
+aws s3 cp s3://aiqx/uns_modularize/es_indexing/domains/dayserial_numeric=$datedpi/ s3://aiqx/uns_modularize/automated-daily/es_indexing/domains/dayserial_numeric=$copying_date/ --recursive
 aws s3 cp s3://aiqx/uns_modularize/es_indexing/aud_segments/dayserial_numeric=$datedpi/ s3://aiqx/uns_modularize/automated-daily/es_indexing/aud_segments/dayserial_numeric=$copying_date/ --recursive
 aws s3 cp s3://aiqx/uns_modularize/es_indexing/demog_segs/dayserial_numeric=$datedpi/ s3://aiqx/uns_modularize/automated-daily/es_indexing/demog_segs/dayserial_numeric=$copying_date/ --recursive
+
 aws s3 cp s3://aiqx/uns_modularize/metadata/audience_meta_data_final/dayserial_numeric=$datedpi/ s3://aiqx/uns_modularize/automated-daily/metadata/audience_meta_data_final/dayserial_numeric=$copying_date/ --recursive
 aws s3 cp s3://aiqx/uns_modularize/metadata/domains_meta_data_final/dayserial_numeric=$datedpi/ s3://aiqx/uns_modularize/automated-daily/metadata/domains_meta_data_final/dayserial_numeric=$copying_date/ --recursive
 aws s3 cp s3://aiqx/uns_modularize/metadata/words_meta_data_final/dayserial_numeric=$datedpi/ s3://aiqx/uns_modularize/automated-daily/metadata/words_meta_data_final/dayserial_numeric=$copying_date/ --recursive
@@ -172,10 +177,11 @@ aws s3 cp s3://aiqx/uns_modularize/athena_users/cast_day_hour/dayserial_numeric=
 aws s3 cp s3://aiqx/uns_modularize/athena_users/cast_commercial_brands_titles/dayserial_numeric=$datedpi/ s3://aiqx/uns_modularize/automated-daily/athena_users/cast_commercial_brands_titles/dayserial_numeric=$copying_date/ --recursive
 aws s3 cp s3://aiqx/uns_modularize/athena_users/cast_commercial_brands_networks/dayserial_numeric=$datedpi/ s3://aiqx/uns_modularize/automated-daily/athena_users/cast_commercial_brands_networks/dayserial_numeric=$copying_date/ --recursive
 aws s3 cp s3://aiqx/uns_modularize/es_indexing/cast_commercial_brands_list/dayserial_numeric=$datedpi/ s3://aiqx/uns_modularize/automated-daily/es_indexing/cast_commercial_brands_list/dayserial_numeric=$copying_date/ --recursive
+aws s3 cp s3://aiqx/uns_modularize/athena_users/domains_category/dayserial_numeric=$datedpi/ s3://aiqx/uns_modularize/automated-daily/athena_users/domains_category/dayserial_numeric=$copying_date/ --recursive
 
 
 
-/usr/lib/hive1.2/usr-bin/hive1.2 -f s3://aiqdatabucket/scripts/aiqx/uns_qubole/basic_load_tables.sql -d DAYSERIAL_NUMERIC=$1 -d datedpi=$datedpi -d DAY1=$DAY1 -d DAY2=$DAY2 -d DAY3=$DAY3 -d DAY4=$DAY4 -d DAY5=$DAY5 -d DAY6=$DAY6 -d DAY7=$DAY7 -d DAY8=$DAY8 -d DAY9=$DAY9 -d DAY10=$DAY10 -d DAY11=$DAY11 -d DAY12=$DAY12 -d DAY13=$DAY13 -d DAY14=$DAY14 -d DAY15=$DAY15 -d DAY16=$DAY16 -d DAY17=$DAY17 -d DAY18=$DAY18 -d DAY19=$DAY19 -d DAY20=$DAY20 -d DAY21=$DAY21 -d DAY22=$DAY22 -d DAY23=$DAY23 -d DAY24=$DAY24 -d DAY25=$DAY25 -d DAY26=$DAY26 -d DAY27=$DAY27 -d DAY28=$DAY28 -d DAY29=$DAY29 -d DAY30=$DAY30
+/usr/lib/hive1.2/usr-bin/hive1.2 -f s3://aiqdatabucket/scripts/aiqx/uns_qubole/aiqx_daily_airflow/basic_load_tables.sql -d DAYSERIAL_NUMERIC=$1 -d datedpi=$datedpi -d DAY1=$DAY1 -d DAY2=$DAY2 -d DAY3=$DAY3 -d DAY4=$DAY4 -d DAY5=$DAY5 -d DAY6=$DAY6 -d DAY7=$DAY7 -d DAY8=$DAY8 -d DAY9=$DAY9 -d DAY10=$DAY10 -d DAY11=$DAY11 -d DAY12=$DAY12 -d DAY13=$DAY13 -d DAY14=$DAY14 -d DAY15=$DAY15 -d DAY16=$DAY16 -d DAY17=$DAY17 -d DAY18=$DAY18 -d DAY19=$DAY19 -d DAY20=$DAY20 -d DAY21=$DAY21 -d DAY22=$DAY22 -d DAY23=$DAY23 -d DAY24=$DAY24 -d DAY25=$DAY25 -d DAY26=$DAY26 -d DAY27=$DAY27 -d DAY28=$DAY28 -d DAY29=$DAY29 -d DAY30=$DAY30
 
 
 copying_date=$1

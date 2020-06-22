@@ -45,3 +45,12 @@ select * from dpi_dump_ids_new where degeocountry='DE';
 
 insert overwrite table dpi_dump_ids_daily PARTITION (geo_country = 'GB')
 select * from dpi_dump_ids_new where degeocountry='GB';
+
+insert overwrite table dpi_dump_ids_daily PARTITION (geo_country = 'SG')
+select * from dpi_dump_ids_new where degeocountry='SG';
+
+insert overwrite table dpi_dump_ids_daily PARTITION (geo_country = 'TH')
+select * from dpi_dump_ids_new where degeocountry='TH';
+
+insert overwrite table dpi_dump_ids_daily PARTITION (geo_country = 'MY')
+select * from dpi_dump_ids_new where degeocountry='MY';

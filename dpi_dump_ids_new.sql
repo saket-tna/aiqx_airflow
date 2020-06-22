@@ -36,5 +36,5 @@ create  table dpi_dump_ids_new as
 select a.userid,a.degeocountry,a.hours_of_the_day,a.days_of_the_week,a.sitedomains,
 b.segments as adv_segments,a.aud_segments,a.demog_segments as demog_seg,
 a.word,a.url_words,a.brands as aiqx_brands,a.devices as device_types,
-a.cities,a.regions,a.titles,a.networks,a.day_week,a.cast_brands from
+a.cities,a.regions,a.titles,a.networks,a.day_week,a.cast_brands,a.domains_category from
 dpi_dump_ids as a left outer  join user_adv_segments2 as b on a.userid=cast(b.USER_ID_64 as bigint);
